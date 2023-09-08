@@ -21,7 +21,7 @@ fn play_chord(freqs: Vec<f32>, duration: f32) {
 
     let mut sinks = vec![];
 
-    let amp = 1. / freqs.len() as f32;
+    let amp = 0.5 / freqs.len() as f32;
 
     for freq in freqs {
         let sink = Sink::try_new(&stream_handle).unwrap();

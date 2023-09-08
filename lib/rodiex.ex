@@ -1,7 +1,9 @@
 defmodule Rodiex do
   alias Rodiex.Native, as: N
 
-  def play(freq, opts \\ []) when is_number(freq) do
+  def play(freq_or_freqs, opts \\ [])
+
+  def play(freq, opts) when is_number(freq) do
     duration = Keyword.get(opts, :duration, 2.0)
 
     N.play(freq / 1, duration / 1)
@@ -9,7 +11,7 @@ defmodule Rodiex do
     freq
   end
 
-  def play_chord(freqs, opts \\ []) when is_list(freqs) do
+  def play(freqs, opts) when is_list(freqs) do
     duration = Keyword.get(opts, :duration, 2.0)
 
     freqs
